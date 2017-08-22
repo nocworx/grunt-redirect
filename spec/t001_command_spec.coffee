@@ -16,7 +16,7 @@ describe "T001: Command Spec", ->
       fs.unlink path
 
   before ->
-    fs.mkdirSync get_path "tmp" unless fs.existsSync "tmp"
+    fs.mkdirSync get_path "tmp" unless fs.existsSync get_path "tmp"
     remove_output_files()
 
     # define run function
@@ -45,3 +45,8 @@ describe "T001: Command Spec", ->
         stdout.should.include "File is found"
         done() if error
 
+  it "A003: grunt redirect (multiple args)", (done)->
+    gruntfile_path = get_path "mocks/t001_a003_gruntfile.coffee"
+    @run_grunt gruntfile_path, (error, stdout)=>
+      stdout.should.include "All done."
+      done() unless error
