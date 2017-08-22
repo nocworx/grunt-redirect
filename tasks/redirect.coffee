@@ -16,7 +16,6 @@ module.exports = (grunt) ->
     stderr: false
     overwrite: true
 
-
   # get filenames from options
   get_files = get_files = (options) ->
     if typeof options is "object"
@@ -26,6 +25,7 @@ module.exports = (grunt) ->
       )
     throw new Error("E001: Unknown files option")
 
+  # Split command string into array
   split_command = split_command = (command) ->
     re = /[^\s"]+|"([^"]*)"/gi
     results = []
@@ -60,11 +60,9 @@ module.exports = (grunt) ->
       commands
     , {})
 
-
   # to boolean
   to_boolean = to_boolean = (x) ->
     !!x
-
 
   #
   # main task
@@ -101,8 +99,6 @@ module.exports = (grunt) ->
           grunt.log.writeln "#{command.command} > #{filename}: NG"
         callback res
 
-
-
     #
     # run command each file
     #
@@ -117,6 +113,5 @@ module.exports = (grunt) ->
       else
         grunt.log.writeln "All done."
         done_callback()
-
 
   grunt.registerMultiTask "redirect", "Redirect", redirect_task_func
