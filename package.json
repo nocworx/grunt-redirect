@@ -30,7 +30,7 @@
     "underscore": "~1.5.2"
   },
   "dependencies": {
-    "underscore": "~1.5.2",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "underscore": "~1.5.2"
   }
 }
